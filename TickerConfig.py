@@ -49,7 +49,7 @@ USER = "***"
 PWD = "***"
 
 # 加入小黑屋时间默认为5分钟，此功能为了防止僵尸票导致一直下单不成功错过正常的票
-TICKET_BLACK_LIST_TIME = 3
+TICKET_BLACK_LIST_TIME = 5
 
 # 自动打码
 IS_AUTO_CODE = True
@@ -119,7 +119,7 @@ ORDER_MODEL = 2
 IS_PROXY = 0
 
 # 预售放票时间, 如果是捡漏模式，可以忽略此操作
-OPEN_TIME = "13:00:00"
+OPEN_TIME = "12:59:57"
 # 1=使用selenium获取devicesID
 # 2=使用网页端/otn/HttpZF/logdevice获取devicesId，这个接口的算法目前可能有点问题，如果登录一直302的请改为配置1
 # 3=自己打开浏览器在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium
@@ -131,6 +131,8 @@ CHROME_PATH = "D:\\Java\\chromedriver.exe"
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
 RAIL_EXPIRATION = ""
 RAIL_DEVICEID = ""
+# RAIL_EXPIRATION = "1577034103293"
+# RAIL_DEVICEID = "CDno29Erc_Pf3FSXb4dzq-Op64EhWrsi5yUZKVIKR1MAfYo2qFlCeXD8VkexY7_1qg-ClV-fE8j9jgVlPZxRh3wVc2iqLe_5A8sdr62qZx4B22JPF8lFCjpgTKZ5ODW90HJd5tiQsJ1KR9nOqHRxHj1FT5LEIwfw"
 
 
 # 1=>为一直随机ua,2->只启动的时候随机一次ua
@@ -155,4 +157,4 @@ MAX_TIME = 5
 MIN_TIME = 3
 
 # 软件版本
-RE_VERSION = "1.1.117"
+RE_VERSION = "1.2.004"
