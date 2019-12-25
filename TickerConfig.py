@@ -4,23 +4,24 @@
 # 如果这个时候捡漏捡到的话，也是可以付款成功的，也就是说，捡漏+候补，可以最大程度提升抢票成功率
 
 # 刷票模式：1=刷票 2=候补+刷票
-TICKET_TYPE = 2
+TICKET_TYPE = 1
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
-    "2019-10-25"
+    "2019-12-25"
+    # "2020-01-18"
 ]
 
 # 填入需要购买的车次(list)，"G1353"
 # 修改车次填入规则，注：(以前设置的车次逻辑不变)，如果车次填入为空，那么就是当日乘车所有车次都纳入筛选返回
 # 不填车次是整个list为空才算，如果不是为空，依然会判断车次的，这种是错误的写法 [""], 正确的写法 []
-STATION_TRAINS = []
+STATION_TRAINS = ["K269"]
 
 # 出发城市，比如深圳北，就填深圳就搜得到
-FROM_STATION = "深圳北"
+FROM_STATION = "北京"
 
 # 到达城市 比如深圳北，就填深圳就搜得到
-TO_STATION = "长沙南"
+TO_STATION = "鹤壁"
 
 # 座位(list) 多个座位ex:
 # "商务座",
@@ -32,7 +33,7 @@ TO_STATION = "长沙南"
 # "硬座",
 # "无座",
 # "动卧",
-SET_TYPE = []
+SET_TYPE = ["二等座", "硬卧", "无座"]
 
 # 当余票小于乘车人，如果选择优先提交，则删减联系人和余票数一致在提交
 # bool
@@ -41,24 +42,24 @@ IS_MORE_TICKET = True
 # 乘车人(list) 多个乘车人ex:
 # "张三",
 # "李四"
-TICKET_PEOPLES = []
+TICKET_PEOPLES = ["***"]
 
 # 12306登录账号
-USER = ""
-PWD = ""
+USER = "***"
+PWD = "***"
 
 # 加入小黑屋时间默认为5分钟，此功能为了防止僵尸票导致一直下单不成功错过正常的票
-TICKET_BLACK_LIST_TIME = 5
+TICKET_BLACK_LIST_TIME = 3
 
 # 自动打码
 IS_AUTO_CODE = True
 
 # 设置2本地自动打码，需要配置tensorflow和keras库，3为云打码，由于云打码服务器资源有限(为2h4C的cpu服务器)，请不要恶意请求，不然只能关闭服务器
 # ps: 请不要一直依赖云服务器资源，在此向所有提供服务器同学表示感谢
-AUTO_CODE_TYPE = 2
+AUTO_CODE_TYPE = 3
 
 # 此处设置云打码服务器地址，如果有自建的服务器，可以自行更改
-HOST = "api.readour.org"
+HOST = "120.24.62.193"
 REQ_URL = "/verify/base64/"
 HTTP_TYPE = "http"
 # HOST="12306.yinaoxiong.cn" #备用服务器稳定性较差
@@ -79,12 +80,18 @@ HTTP_TYPE = "http"
 #  password: "授权码"
 #  host: "smtp.qq.com"
 EMAIL_CONF = {
+    # "IS_MAIL": True,
+    # "email": "2649721826@qq.com",
+    # "notice_email_list": "liby3@126.com",
+    # "username": "2649721826@qq.com",
+    # "password": "123liby3",
+    # "host": "smtp.qq.com",
     "IS_MAIL": True,
-    "email": "",
-    "notice_email_list": "",
-    "username": "",
-    "password": "",
-    "host": "smtp.qq.com",
+     "email": "****@126.com",
+     "notice_email_list": "****@126.com,2649721826@qq.com",
+     "username": "****@126.com",
+     "password": "****",
+     "host": "smtp.126.com"
 }
 
 # 是否开启 server酱 微信提醒， 使用前需要前往 http://sc.ftqq.com/3.version 扫码绑定获取 SECRET 并关注获得抢票结果通知的公众号
@@ -97,7 +104,7 @@ SERVER_CHAN_CONF = {
 IS_CDN = 1
 
 # 下单接口分为两种，1 模拟网页自动捡漏下单（不稳定），2 模拟车次后面的购票按钮下单（稳如老狗）
-ORDER_TYPE = 1
+ORDER_TYPE = 2
 
 # 下单模式 1 为预售，整点刷新，刷新间隔0.1-0.5S, 然后会校验时间，比如12点的预售，那脚本就会在12.00整检票，刷新订单
 #         2 是捡漏，捡漏的刷新间隔时间为0.5-3秒，时间间隔长，不容易封ip
@@ -119,7 +126,7 @@ OPEN_TIME = "13:00:00"
 COOKIE_TYPE = 1
 # 如果COOKIE_TYPE=1，则需配置chromeDriver路径,下载地址http://chromedriver.storage.googleapis.com/index.html
 # chromedriver配置版本只要和chrome的大版本匹配就行
-CHROME_PATH = "/Users/wenxianping/Downloads/chromedriver"
+CHROME_PATH = "D:\\Java\\chromedriver.exe"
 
 # 如果COOKIE_TYPE=3, 则需配置RAIL_EXPIRATION、RAIL_DEVICEID的值
 RAIL_EXPIRATION = ""
