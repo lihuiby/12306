@@ -8,14 +8,18 @@ TICKET_TYPE = 1
 
 # 出发日期(list) "2018-01-06", "2018-01-07"
 STATION_DATES = [
-    "2019-12-25"
-    # "2020-01-18"
+    # "2019-12-26"
+    # "2020-01-23"
+    "2020-01-25"
 ]
 
 # 填入需要购买的车次(list)，"G1353"
 # 修改车次填入规则，注：(以前设置的车次逻辑不变)，如果车次填入为空，那么就是当日乘车所有车次都纳入筛选返回
 # 不填车次是整个list为空才算，如果不是为空，依然会判断车次的，这种是错误的写法 [""], 正确的写法 []
-STATION_TRAINS = ["K269"]
+STATION_TRAINS = ["T167", "K179", "G673", "G587", "G505", "G663", "G525"]
+# STATION_TRAINS = ["G1564", "G1560", "G562"]
+# STATION_TRAINS = ["K411"]
+
 
 # 出发城市，比如深圳北，就填深圳就搜得到
 FROM_STATION = "北京"
@@ -33,7 +37,7 @@ TO_STATION = "鹤壁"
 # "硬座",
 # "无座",
 # "动卧",
-SET_TYPE = ["二等座", "硬卧", "无座"]
+SET_TYPE = ["二等座", "硬卧"]
 
 # 当余票小于乘车人，如果选择优先提交，则删减联系人和余票数一致在提交
 # bool
@@ -88,7 +92,7 @@ EMAIL_CONF = {
     # "host": "smtp.qq.com",
     "IS_MAIL": True,
      "email": "****@126.com",
-     "notice_email_list": "****@126.com,2649721826@qq.com",
+     "notice_email_list": "****@126.com,*****@qq.com",
      "username": "****@126.com",
      "password": "****",
      "host": "smtp.126.com"
@@ -108,7 +112,7 @@ ORDER_TYPE = 2
 
 # 下单模式 1 为预售，整点刷新，刷新间隔0.1-0.5S, 然后会校验时间，比如12点的预售，那脚本就会在12.00整检票，刷新订单
 #         2 是捡漏，捡漏的刷新间隔时间为0.5-3秒，时间间隔长，不容易封ip
-ORDER_MODEL = 2
+ORDER_MODEL = 1
 
 # 是否开启代理, 0代表关闭， 1表示开始
 # 开启此功能的时候请确保代理ip是否可用，在测试放里面经过充分的测试，再开启此功能，不然可能会耽误你购票的宝贵时间
@@ -119,7 +123,8 @@ ORDER_MODEL = 2
 IS_PROXY = 0
 
 # 预售放票时间, 如果是捡漏模式，可以忽略此操作
-OPEN_TIME = "12:59:57"
+OPEN_TIME = "07:59:55"
+# OPEN_TIME = "17:29:55"
 # 1=使用selenium获取devicesID
 # 2=使用网页端/otn/HttpZF/logdevice获取devicesId，这个接口的算法目前可能有点问题，如果登录一直302的请改为配置1
 # 3=自己打开浏览器在headers-Cookies中抓取RAIL_DEVICEID和RAIL_EXPIRATION，这个就不用配置selenium
